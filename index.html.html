@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eagles World Wide - Premium Granite & Marble</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* In-page styles for quick adjustments - ideally, these would be in style.css */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .logo {
+            display: flex;
+            alignItems: center;
+        }
+
+        header .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .hero {
+            background-image: url('luxury_marble_bathroom.jpg');
+            /* Updated background image */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 200px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .social-buttons a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #fff;
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .social-buttons a:hover {
+            transform: translateY(-3px);
+        }
+
+        .about {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .about-content {
+            margin-bottom: 40px;
+        }
+
+        .about-content h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .about-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-feed {
+            padding: 60px 0;
+            background-color: #f0f0f0;
+        }
+
+        .social-feed h2 {
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 1em;
+            color: #555;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .tab-button.active {
+            color: #007bff;
+            border-bottom-color: #007bff;
+        }
+
+        .tab-content {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tab-content.active {
+            display: grid;
+        }
+
+        .feed-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feed-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feed-item-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .feed-item p {
+            padding: 15px;
+            color: #555;
+        }
+
+        .feed-item a {
+            display: block;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .feed-item a:hover {
+            background-color: #0056b3;
+        }
+
+        .products {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .products h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            /* Larger minimum width for a more premium feel */
+            gap: 40px;
+            /* Increased gap */
+            padding: 30px;
+            /* Add some padding around the grid */
+            border-radius: 10px;
+            /* Optional: rounded corners for the grid */
+            background-color: #f9f9f9;
+            /* Light background for the grid */
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            /* More pronounced shadow */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            /* Smoother transitions */
+        }
+
+        .product-card:hover {
+            transform: scale(1.03);
+            /* Slight scale-up on hover */
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+            /* Enhanced shadow on hover */
+        }
+
+        .product-image {
+            height: 300px;
+            /* Increased image height */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-card h3 {
+            padding: 25px;
+            margin: 0;
+            font-size: 1.7em;
+            /* Larger font size */
+            color: #222;
+            /* Darker text */
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            /* Subtle divider */
+        }
+
+        .product-card p {
+            padding: 20px 25px;
+            margin: 0;
+            color: #444;
+            /* Darker paragraph text */
+            line-height: 1.7;
+        }
+
+        .product-card a {
+            display: block;
+            background-color: #00a65a;
+            /* More vibrant green */
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .product-card a:hover {
+            background-color: #1e7e34;
+        }
+
+        .testimonials {
+            padding: 60px 0;
+            background-color: #f0f0f0;
+        }
+
+        .testimonials h2 {
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .testimonial-slider {
+            text-align: center;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            max-width: 700px;
+        }
+
+        .testimonial p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            font-style: italic;
+            color: #777;
+        }
+
+        .contact {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .contact-details div {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-details i {
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .contact-details p a {
+            text-decoration: none;
+            color: #555;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        .form-group textarea {
+            rows: 7;
+        }
+
+        .contact-form button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        footer h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        footer p,
+        footer ul li a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 8px;
+        }
+
+        footer .social-buttons a {
+            color: #fff;
+            font-size: 1.3em;
+            margin: 0 8px;
+        }
+
+        footer .footer-bottom {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="/api/placeholder/60/60" alt="Eagles World Wide Logo">
+                <h1>Eagles World Wide</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Premium Granite & Marble</h1>
+            <p>Transform your space with luxurious, high-quality stone solutions</p>
+            <h2>Official Distributors in East Africa</h2>
+            <div class="social-buttons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>About Eagles World Wide</h2>
+                <p>Eagles World Wide is a premier distributor of high-quality granite, marble, and other stone products for residential and commercial applications in Kenya and East Africa. With over 20 years of experience in the stone industry, we pride ourselves on our craftsmanship, attention to detail, and commitment to customer satisfaction.</p>
+                <p>Our extensive selection of premium stones sourced from around the world ensures that we can meet any design vision and budget. From kitchen countertops and bathroom vanities to fireplace surrounds and outdoor features, we offer comprehensive stone solutions that add lasting value and beauty to your space.</p>
+                <p>Our team of skilled artisans and designers works closely with each client to bring their vision to life, providing expert guidance throughout the entire process - from material selection to installation and beyond.</p>
+            </div>
+            <div class="about-image">
+                <img src="/api/placeholder/600/400" alt="Stone Workshop">
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Feed Section -->
+    <section class="social-feed">
+        <div class="container">
+            <h2>Follow Our Latest Projects</h2>
+            <div class="tabs">
+                <button class="tab-button active" data-tab="instagram">Instagram</button>
+                <button class="tab-button" data-tab="facebook">Facebook</button>
+                <button class="tab-button" data-tab="tiktok">TikTok</button>
+            </div>
+            <div id="instagram" class="tab-content active">
+                <div class="feed-item">
+                    <div class="feed-item-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <p>Elegant Calacatta marble kitchen island installation #LuxuryKitchens</p>
+                    <a href="#">View on Instagram</a>
+                </div>
+                <div class="feed-item">
+                    <div class="feed-item-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <p>Black granite countertops paired with custom cabinetry #KitchenDesign</p>
+                    <a href="#">View on Instagram</a>
+                </div>
+                <div class="feed-item">
+                    <div class="feed-item-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <p>Stunning book-matched marble fireplace surround #LivingRoomMakeover</p>
+                    <a href="#">View on Instagram</a>
+                </div>
+            </div>
+            <div id="facebook" class="tab-content">
+                <div class="feed-item">
+                    <div class="feed-item-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <p>Check out our newest shipment of exotic granite from Brazil! Now available in our showroom #LuxuryStone</p>
+                    <a href="#">View on Facebook</a>
+                </div>
+                <div class="feed-item">
+                    <div class="feed-item-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <p>This weekend only: Special promotion on select marble varieties. Visit our Nairobi showroom! #SpecialOffer</p>
+                    <a href="#">View on Facebook</a>
+                </div>
+                <div class="feed-item">
+                    <div class="feed-item-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <p>Congratulations to Karen Heights Development for completing their luxury apartments with our premium granite! #ProjectComplete</p>
+                    <a href="#">View on Facebook</a>
+                </div>
+            </div>
+            <div id="tiktok" class="tab-content">
+                <div class="feed-item">
+                    <div class="feed-item-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <p>Watch our craftsmen transform this raw slab into a masterpiece in just 60 seconds! #StoneCraftsmanship #TimeLapse</p>
+                    <a href="#">View on TikTok</a>
+                </div>
+                <div class="feed-item">
+                    <div class="feed-item-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <p>Trending stone patterns for 2025 - swipe to see all the options available in our Nairobi showroom! #StoneTrends</p>
+                    <a href="#">View on TikTok</a>
+                </div>
+                <div class="feed-item">
+                    <div class="feed-item-image" style="background-image: url('/api/placeholder/300/200')"></div>
+                    <p>The satisfying process of polishing granite to perfection ✨ #OddlySatisfying #StonePolishing</p>
+                    <a href="#">View on TikTok</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Premium Stone Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/api/placeholder/350/300')"></div>
+                    <h3>Granite Countertops</h3>
+                    <p>Durable, heat-resistant, and available in hundreds of colors and patterns. Perfect for kitchens and high-traffic areas.</p>
+                    <a href="#">Explore Options</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/api/placeholder/350/300')"></div>
+                    <h3>Marble Surfaces</h3>
+                    <p>Elegant, timeless, and luxurious. Ideal for bathrooms, fireplace surrounds, and statement pieces.</p>
+                    <a href="#">Explore Options</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/api/placeholder/350/300')"></div>
+                    <h3>Quartz Countertops</h3>
+                    <p>Engineered for durability with consistent patterns. Non-porous and maintenance-free.</p>
+                    <a href="#">Explore Options</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/api/placeholder/350/300')"></div>
+                    <h3>Specialty Stones</h3>
+                    <p>Unique options including onyx, travertine, and exotic granites for truly one-of-a-kind projects.</p>
+                    <a href="#">Explore Options</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/api/placeholder/350/300')"></div>
+                    <h3>Custom Fabrication</h3>
+                    <p>Bespoke edge profiles, inlays, and special features to personalize your stone installation.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/api/placeholder/350/300')"></div>
+                    <h3>Stone Care Products</h3>
+                    <p>Professional-grade sealers, cleaners, and maintenance products to keep your stone looking beautiful.</p>
+                    <a href="#">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p>"Eagles World Wide transformed our outdated kitchen into a stunning showpiece. Their expert guidance helped us select the perfect granite for our style and budget. The installation was flawless, and their attention to detail was impressive. We couldn't be happier with the results!"</p>
+                    <div class="testimonial-author">- Sarah & David, Residential Clients</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-details">
+                <div>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Westlands Business Park<br>Nairobi, Kenya</p>
+                </div>
+                <div>
+                    <i class="fas fa-phone"></i>
+                    <p><a href="tel:+254723515913">+254 723 515913</a><br><a href="tel:+254711374246">+254 711 374246</a></p>
+                </div>
+                <div>
+                    <i class="fas fa-envelope"></i>
+                    <p><a href="mailto:info@eaglesworldwide.com">info@eaglesworldwide.com</a></p>
+                </div>
+                <div>
+                    <i class="fas fa-clock"></i>
+                    <p>Mon-Fri: 9am-6pm<br>Sat: 10am-4pm<br>Sun: Closed</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="7" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div>
+                <h3>Eagles World Wide</h3>
+                <p>Premium Granite & Marble distributors providing luxury stone solutions for residential and commercial projects throughout Kenya and East Africa.</p>
+                <div class="social-buttons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Stone Selection</a></li>
+                    <li><a href="#">Custom Fabrication</a></li>
+                    <li><a href="#">Professional Installation</a></li>
+                    <li><a href="#">Maintenance & Repairs</a></li>
+                    <li><a href="#">Commercial Projects</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive updates on new products, special offers, and design inspiration.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Eagles World Wide. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    document.getElementById(button.dataset.tab).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
